@@ -7,12 +7,10 @@
 @layer base {
     body {
         font-family: 'Inter', sans-serif;
-        background-color: #f0f2f5;
         -webkit-font-smoothing: antialiased;
     }
 }
 
-/* Spinner animation */
 @keyframes spin {
     to {
         transform: rotate(360deg);
@@ -20,20 +18,20 @@
 }
 
 .spinner {
-    width: 18px;
-    height: 18px;
-    border: 2.5px solid rgba(255, 255, 255, 0.3);
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-top-color: #fff;
     border-radius: 50%;
     animation: spin 0.7s linear infinite;
     display: inline-block;
+    flex-shrink: 0;
 }
 
-/* Fade up */
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(12px);
+        transform: translateY(10px);
     }
 
     to {
@@ -43,5 +41,5 @@
 }
 
 .fade-up {
-    animation: fadeUp 0.35s ease forwards;
+    animation: fadeUp 0.3s ease forwards;
 }

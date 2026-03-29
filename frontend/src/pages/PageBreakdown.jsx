@@ -11,7 +11,7 @@ export default function PageBreakdown({ audit, onBack }) {
 
             {/* Navbar */}
             <nav className="bg-slate-900 px-10 py-5">
-                <span className="font-syne text-xl font-extrabold text-white tracking-tight">
+                <span className="font-syne text-xl  text-white ">
                     SEO<span className="text-sky-400">Audit</span>
                 </span>
             </nav>
@@ -23,7 +23,7 @@ export default function PageBreakdown({ audit, onBack }) {
                     ← Back to Overview
                 </button>
 
-                <h1 className="font-syne text-3xl font-extrabold text-slate-900 tracking-tight mb-1">
+                <h1 className="font-syne text-3xl  text-slate-900  mb-1">
                     Page-Level Breakdown
                 </h1>
                 <p className="text-slate-400 text-sm mb-8">
@@ -36,7 +36,7 @@ export default function PageBreakdown({ audit, onBack }) {
                     {/* Table Head */}
                     <div className="grid grid-cols-[1fr_90px_100px_80px] px-5 py-3 bg-slate-50 border-b border-slate-200">
                         {["Page URL", "Status", "Issues", "Severity"].map((h) => (
-                            <span key={h} className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                            <span key={h} className="text-xs font-bold text-slate-400 uppercase ">
                                 {h}
                             </span>
                         ))}
@@ -81,7 +81,7 @@ export default function PageBreakdown({ audit, onBack }) {
 
                                             {/* Issues */}
                                             <div>
-                                                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Issues Found</p>
+                                                <p className="text-xs font-bold text-slate-400 uppercase  mb-3">Issues Found</p>
                                                 {page.issues.length === 0 ? (
                                                     <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-600 text-xs font-bold px-3 py-1.5 rounded-full">
                                                         ✓ All checks passed
@@ -106,7 +106,7 @@ export default function PageBreakdown({ audit, onBack }) {
 
                                             {/* Metrics */}
                                             <div>
-                                                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Metrics</p>
+                                                <p className="text-xs font-bold text-slate-400 uppercase  mb-3">Metrics</p>
                                                 <div className="flex flex-col gap-2">
                                                     <MetricRow label="Title Length" value={`${page.metrics.title_length} chars`} ok={page.metrics.title_length >= 30 && page.metrics.title_length <= 65} />
                                                     <MetricRow label="Meta Desc Length" value={`${page.metrics.meta_description_length} chars`} ok={page.metrics.meta_description_length >= 70 && page.metrics.meta_description_length <= 160} />
@@ -119,7 +119,7 @@ export default function PageBreakdown({ audit, onBack }) {
 
                                         {/* Full URL */}
                                         <div className="mt-4 pt-4 border-t border-slate-200">
-                                            <span className="text-xs text-slate-400 font-semibold uppercase tracking-wide">URL: </span>
+                                            <span className="text-xs text-slate-400 font-semibold uppercase">URL: </span>
                                             <a href={page.url} target="_blank" rel="noreferrer"
                                                 className="text-xs font-mono text-sky-500 hover:underline break-all">
                                                 {page.url}

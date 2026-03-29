@@ -48,7 +48,7 @@ export default function StartAudit({ onAuditComplete }) {
 
             {/* Navbar */}
             <nav className="bg-slate-900 px-10 py-5">
-                <span className="font-syne text-xl font-extrabold text-white tracking-tight">
+                <span className="font-syne text-xl  text-white ">
                     SEO<span className="text-sky-400">Audit</span>
                 </span>
             </nav>
@@ -62,7 +62,7 @@ export default function StartAudit({ onAuditComplete }) {
                 </div>
 
                 {/* Heading */}
-                <h1 className="font-syne text-5xl font-extrabold text-slate-900 text-center leading-tight tracking-tight mb-4">
+                <h1 className="font-syne text-5xl  text-slate-900 text-center leading-tight  mb-4">
                     Technical SEO Audit
                 </h1>
 

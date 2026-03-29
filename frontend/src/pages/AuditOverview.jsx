@@ -16,7 +16,7 @@ export default function AuditOverview({ audit, onViewPages, onNewAudit }) {
 
             {/* Navbar */}
             <nav className="bg-slate-900 px-10 py-5">
-                <span className="font-syne text-xl font-extrabold text-white tracking-tight">
+                <span className="font-syne text-xl  text-white ">
                     SEO<span className="text-sky-400">Audit</span>
                 </span>
             </nav>
@@ -28,7 +28,7 @@ export default function AuditOverview({ audit, onViewPages, onNewAudit }) {
                     ← New Audit
                 </button>
 
-                <h1 className="font-syne text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
+                <h1 className="font-syne text-3xl  text-slate-900  mb-2">
                     Audit Overview
                 </h1>
 
@@ -46,7 +46,7 @@ export default function AuditOverview({ audit, onViewPages, onNewAudit }) {
                     {cards.map((card) => (
                         <div key={card.label} className="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
                             <div className="text-2xl mb-3">{card.icon}</div>
-                            <div className={`text-4xl font-extrabold font-syne leading-none mb-1 ${card.good ? "text-emerald-500" : "text-red-500"}`}>
+                            <div className={`text-4xl  font-syne leading-none mb-1 ${card.good ? "text-emerald-500" : "text-red-500"}`}>
                                 {card.value}
                             </div>
                             <div className="text-sm font-semibold text-slate-700 mt-1">{card.label}</div>
