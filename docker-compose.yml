@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+
+  # ── MongoDB Database ───────────────────────────────────────────
+  mongodb:
+    image: mongo:7          # ready-made image from Docker Hub, no Dockerfile needed
+    container_name: mongodb
+    ports:
+      - "27017:27017"       # your machine port : container port
+    volumes:
+      - mongo_data:/data/db # saves DB data even if container restarts
+    networks:
+      - seo_network
+
+  # ── Backend (Node/Express) ─────────────────────────────────────
+  backend:
+    build:
+      context: ./backend    # use the Dockerfile inside /backend folder
+    container_name: backend
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      # "mongodb" here is the service name above — Docker resolves it automatically
+      - MONGO_URI=mongodb://mongodb:27017/seo-audit
+    depends_on:
+      - mongodb             # backend starts only after mongodb is ready
+    networks:
+      - seo_network
+
+  # ── Frontend (React → built → served by Nginx) ─────────────────
+  frontend:
+    build:
+      context: ./frontend   # use the Dockerfile inside /frontend folder
+    container_name: frontend
+    ports:
+      - "3000:80"           # access at http://localhost:3000
+    depends_on:
+      - backend             # frontend starts after backend
+    networks:
+      - seo_network
+
+# Named volume — persists MongoDB data across container restarts
+volumes:
+  mongo_data:
+
+# Internal network so containers can talk to each other by name
+networks:
+  seo_network:
+    driver: bridge
