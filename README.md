@@ -102,12 +102,14 @@ If navigation elements are found, the website is considered to have proper navig
 4. HTML is parsed using Cheerio
 5. SEO checks are performed:
 
-   * Title check
-   * Meta description check
-   * Headings analysis
-   * Images alt detection
-   * Broken links detection
-   * Navigation detection
+   Title tag (exists, 30–65 chars) 
+   Meta description (exists, 70–160 chars)
+   H1 count (exactly one)
+   Canonical tag present  Noindex detection
+   HTTP status
+   Page size > 2MB
+   Internal link count
+   
 6. SEO score is calculated
 7. Data is stored in MongoDB
 8. Backend sends response to frontend
@@ -145,16 +147,41 @@ If navigation elements are found, the website is considered to have proper navig
 📁 Project Structure
 
 ```
-SEO-AUDIT_TOOL
-│
-├── frontend
-│   └── Dockerfile
-│
-├── backend
-│   └── Dockerfile
-│
-├── docker-compose.yml
-└── README.md
+project-root/
+├── docker-compose.yml        
+├── .gitignore
+├── backend/
+│   ├── Dockerfile            
+│   ├── server.js
+│   ├── package.json
+│   └── src/
+│       ├── app.js
+│       ├── config/db.js
+│       ├── controllers/auditController.js
+│       ├── models/auditModel.js
+│       ├── routes/auditRoutes.js
+│       └── services/
+│           ├── crawler.js
+│           └── seoAnalyzer.js
+└── frontend/
+    ├── Dockerfile            
+    ├── nginx.conf            
+    ├── .env                  
+    ├── package.json
+    ├── vite.config.js
+    ├── tailwind.config.js
+    ├── postcss.config.js
+    ├── index.html
+    └── src/
+        ├── main.jsx
+        ├── App.jsx
+        ├── index.css
+        ├── api/auditApi.js
+        ├── utils/issuesMeta.js
+        └── pages/
+            ├── StartAudit.jsx
+            ├── AuditOverview.jsx
+            └── PageBreakdown.jsx
 ```
 
 👩‍💻 Author
